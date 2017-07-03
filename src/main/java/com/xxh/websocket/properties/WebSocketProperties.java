@@ -65,4 +65,16 @@ public class WebSocketProperties {
     public void setMaxBinaryMessageBufferSize(int maxBinaryMessageBufferSize) {
         this.maxBinaryMessageBufferSize = maxBinaryMessageBufferSize;
     }
+
+    @Override
+    public String toString() {
+        return "WebSocketProperties{" +
+                "port=" + port +
+                ", path='" + path + '\'' +
+                ", inputBufferSize=" + inputBufferSize +
+                ", idleTimeout=" + idleTimeout +
+                ", maxTextMessageBufferSize=" + maxTextMessageBufferSize +
+                ", maxBinaryMessageBufferSize=" + maxBinaryMessageBufferSize +
+                '}';
+    }
 }
