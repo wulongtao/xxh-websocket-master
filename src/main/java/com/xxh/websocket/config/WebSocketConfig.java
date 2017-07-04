@@ -24,7 +24,6 @@ import java.util.concurrent.TimeUnit;
 @Configuration
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
-    public static long startTime;
     private final Logger logger = LoggerFactory.getLogger(WebSocketConfig.class);
     @Autowired
     private WebSocketProperties properties;
