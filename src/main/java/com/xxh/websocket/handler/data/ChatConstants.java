@@ -1,4 +1,4 @@
-package com.xxh.websocket.util;
+package com.xxh.websocket.handler.data;
 
 /**
  * Created by wulongtao on 2017/7/3.

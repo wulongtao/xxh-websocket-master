@@ -20,13 +20,12 @@ public class DemoController {
 
     @RequestMapping("/demo")
     public Map<String, Object> demo() {
-        logger.debug("aaaa");
-        logger.info("bbbb");
         Map<String, Object> map = new HashMap<>();
         map.put("result", 0);
-        map.put("message", "success");
+        map.put("i18n", "success");
         return map;
     }
+
 
     @RequestMapping("/testProp")
     public String testProp() {

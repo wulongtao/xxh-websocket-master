@@ -1,6 +1,6 @@
 package com.xxh.websocket.interceptor;
 
-import com.xxh.websocket.util.ChatConstants;
+import com.xxh.websocket.handler.data.ChatConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.server.ServerHttpRequest;
@@ -25,7 +25,7 @@ public class WebSocketHandshsakeInterceptor implements HandshakeInterceptor {
             map.put(ChatConstants.CLIENT_ID, clientId);
             logger.info("绑定ID：" + clientId);
         }
-        return false;
+        return true;
     }
 
     @Override

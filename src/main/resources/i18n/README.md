@@ -1,0 +1,3 @@
+> 国际化一定要三个文件一起加messages.properties
+、messages_en_US.properties
+、messages_zh_CN.properties，少了messages.properties会报错
