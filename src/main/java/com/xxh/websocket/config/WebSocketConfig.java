@@ -1,6 +1,7 @@
 package com.xxh.websocket.config;
 
 import com.xxh.websocket.handler.BaseWebSocketHandler;
+import com.xxh.websocket.handler.ChatWebSocketHandler;
 import com.xxh.websocket.interceptor.WebSocketHandshsakeInterceptor;
 import com.xxh.websocket.properties.WebSocketProperties;
 import org.slf4j.Logger;
@@ -38,7 +39,7 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
     @Bean
     public WebSocketHandler handler() {
-        return new BaseWebSocketHandler();
+        return new ChatWebSocketHandler();
     }
 
     @Bean
