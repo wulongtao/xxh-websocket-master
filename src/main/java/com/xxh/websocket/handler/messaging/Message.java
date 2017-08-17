@@ -27,6 +27,10 @@ public class Message {
     private String loginName;
     //密码
     private String pwd;
+    //在线状态
+    private Integer onlineStatus;
+    //能力ID
+    private String ability;
     //时间
     private long addTime;
     //时间字符串
@@ -136,5 +140,21 @@ public class Message {
 
     public void setMessageType(Integer messageType) {
         this.messageType = messageType;
+    }
+
+    public Integer getOnlineStatus() {
+        return onlineStatus;
+    }
+
+    public void setOnlineStatus(Integer onlineStatus) {
+        this.onlineStatus = onlineStatus;
+    }
+
+    public String getAbility() {
+        return ability;
+    }
+
+    public void setAbility(String ability) {
+        this.ability = ability;
     }
 }

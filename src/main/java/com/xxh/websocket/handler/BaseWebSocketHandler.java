@@ -16,7 +16,6 @@ import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import java.io.IOException;
-import java.util.Set;
 
 /**
  * Created by wulongtao on 2017/6/29.
@@ -71,11 +70,34 @@ public abstract class BaseWebSocketHandler extends TextWebSocketHandler {
 
     public abstract void onMessage(Message message, String clientId);
 
+    /**
+     * 关闭用户会话
+     * @param clientId
+     */
+    public boolean closeClientSession(String clientId) {
+        ChatSession chatSession = chatData.getChatSession(clientId);
+        if (chatSession.getType() != ChatSession.TYPE_WEBSOCKET) {
+            chatData.sendMessageToCurrentUser(MessageFactory.buildMessage(ChatConstants.RESULT_LOGOUT_FAILED,
+                    "websocket.message.chat.logout.failed", ChatConstants.TYPE_SERVER_NOTICE, clientId));
+            return false;
+        }
+        try {
+            ((WebSocketSession)chatSession.getSession()).close();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            chatData.sendMessageToCurrentUser(MessageFactory.buildMessage(ChatConstants.RESULT_LOGOUT_FAILED,
+                    "websocket.message.chat.logout.failed", ChatConstants.TYPE_SERVER_NOTICE, clientId));
+            return false;
+        }
+    }
+
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
         logger.info("连接关闭，status：" + status);
+        String clientId = getClientId(session);
         //删除用户会话
-        chatData.removeChatSession(getClientId(session));
+        chatData.removeChatSession(clientId);
     }
 
     /**

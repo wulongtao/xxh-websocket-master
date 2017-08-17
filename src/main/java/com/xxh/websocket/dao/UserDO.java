@@ -17,13 +17,13 @@ public class UserDO {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public User getUserById(String userId) {
-        User user = jdbcTemplate.queryForObject("SELECT * FROM `gchat_user` WHERE `user_id` = ?", new Object[]{userId}, new BeanPropertyRowMapper<>(User.class));
+    public User getUserById(String id) {
+        User user = jdbcTemplate.queryForObject("SELECT `id`,`login_name`,`online_status`,`pwd` FROM `gchat_user` WHERE `user_id` = ?", new Object[]{id}, new BeanPropertyRowMapper<>(User.class));
         return user;
     }
 
     public List<UserAbility> listUserAbility(String userId) {
-        List<UserAbility> lstUserAbility = jdbcTemplate.query("SELECT * FROM `gchat_user_ability` WHERE `userId` = ?", new Object[]{userId}, new BeanPropertyRowMapper<>(UserAbility.class));
+        List<UserAbility> lstUserAbility = jdbcTemplate.query("SELECT `id`,`userId`,`aid` FROM `gchat_user_ability` WHERE `userId` = ?", new Object[]{userId}, new BeanPropertyRowMapper<>(UserAbility.class));
         return lstUserAbility;
     }
 }

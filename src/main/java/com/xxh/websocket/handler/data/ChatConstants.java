@@ -11,9 +11,9 @@ public class ChatConstants {
     /**
      * type类型
      */
-    public static final int TYPE_LOGIN = 1; //客服登录
-    public static final int TYPE_CUS_LOGIN = 2; //客户登录
-    public static final int TYPE_LOGOUT = 3; //客服登出
+    public static final int TYPE_CUSTOMER_SERVICE_LOGIN = 1; //客服登录
+    public static final int TYPE_CUSTOMER_LOGIN = 2; //客户登录
+    public static final int TYPE_CUSTOMER_SERVICE_LOGOUT = 3; //客服登出
     public static final int TYPE_CUS_LOGOUT = 4; //客户登出
     public static final int TYPE_SERVER_NOTICE = 5; //服务器返回消息
     public static final int TYPE_CLIENT_NOTICE = 6; //客户端返回消息
@@ -56,5 +56,7 @@ public class ChatConstants {
     public static final int RESULT_CLIENT_ID_MATCH_FAILED = 1002;
     public static final int RESULT_LOGIN_FAILED = 1003;
     public static final int RESULT_HAS_LOGINED_FAILED = 1004;
+    public static final int RESULT_LOGOUT_FAILED = 1005;
+    public static final int RESULT_USER_ID_NULL = 1006;
 
 }
